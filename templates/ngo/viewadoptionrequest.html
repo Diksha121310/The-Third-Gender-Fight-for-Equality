@@ -1,0 +1,64 @@
+{% extends "ngo/base.html" %}
+{% block content %}
+<div class="inner-banner">
+</div>
+<!-- /form -->
+<section class="w3l-contact-11">
+    <div class="form-41-mian py-5">
+        <div class="container py-lg-4">
+            <div class="row align-form-map">
+                <div class="col-lg-11 d-block m-auto form-inner-cont border rounded bg-light border-primary py-3">
+                    <div class="title-content">
+                        <h3 class="hny-title mb-lg-5 mb-4 text-center">View Adoption Request</h3>
+                    </div>
+                    <p class="text-info text-center">{{message}}</p>
+                    <div class="table-responsive">
+                        <table class="table table-stripped">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>PDF</th>
+                                <th>Member</th>
+                                <th>Mobile</th>
+                                <th>Address</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for request in requests %}
+                            <tr>
+                                <td>{{ request.date }}</td>
+                                <td>{{ request.description }}</td>
+                                <td><a href="media/adoption/{{request.aid}}.pdf" download="">Download</a></td>
+                                <td>{{ request.name }}</td>
+                                <td>{{ request.mobile }}</td>
+                                <td>{{ request.address }}</td>
+                                {% if request.status == "Pending" %}
+                                <td width="18%">
+                                    <form method="post">
+                                        {%csrf_token%}
+                                        <input type="hidden" name="id" value="{{request.id}}">
+                                        <button class="btn btn-success" name="status" type="submit" value="Accepted">
+                                            Accept
+                                        </button>
+                                        <button class="btn btn-danger" name="status" type="submit" value="Rejected">
+                                            Reject
+                                        </button>
+                                    </form>
+                                </td>
+                                {%else%}
+                                <td>{{ request.status }}</td>
+                                {%endif%}
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //form -->
+{% endblock %}

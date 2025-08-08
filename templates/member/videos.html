@@ -1,0 +1,70 @@
+{% extends "member/base.html" %}
+{% block content %}
+<div class="inner-banner">
+</div>
+<section class="bloghny-gds py-5">
+    <div class="container py-lg-4">
+        <div class="title-content text-left mb-lg-5 mb-4">
+            <h6 class="sub-title">Videos</h6>
+            <h3 class="hny-title">Events</h3>
+        </div>
+        <div class="row text-left img-grids">
+            {% for video in videos %}
+            <div class="col-lg-4 col-sm-6 maghny-gd-1">
+                <div class="maghny-grid p-3 m-3"
+                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                    <figure class="effect-lily">
+                        <iframe class="d-block m-auto"
+                                src="https://www.youtube.com/embed/{{video.id}}"
+                                title="{{video.name}}" frameborder="0"
+                                allowfullscreen></iframe>
+                    </figure>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- middle -->
+<div class="middle py-5">
+    <div class="container py-xl-5 py-lg-3">
+        <div class="welcome-left text-center py-3">
+            <div class="title-content">
+                <h6 class="sub-title">THE THIRD GENDER</h6>
+                <h3 class="hny-title two">Fight For Equality</h3>
+                <p>Our mission is to build empowered, self-sufficient, and vibrant Trans movement in India by wholly
+                    caring for the welfare of trans persons; their education, medical treatment, legal standing, and
+                    culture and social upliftment.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //middle -->
+<!--/testimonials-->
+<section class="w3l-testimonials">
+    <div class="testimonials py-5">
+        <div class="container text-center py-lg-3">
+            <div class="title-content text-center mb-lg-5 mb-4">
+                <h6 class="sub-title">Events</h6>
+                <h3 class="hny-title">We campaigns globally for trans equality</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="owl-testimonial owl-carousel owl-theme">
+                        {% for event in events %}
+                        <div class="item">
+                            <div class="slider-info mt-lg-4 mt-3">
+                                <div class="message">{{ event.name }}</div>
+                                <div class="name">{{ event.details }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//testimonials-->
+{% endblock %}

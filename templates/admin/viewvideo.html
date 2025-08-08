@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<div class="inner-banner">
+</div>
+<section class="bloghny-gds py-5">
+    <div class="container py-lg-4">
+        <div class="title-content text-left mb-lg-5 mb-4">
+            <h3 class="hny-title">View Videos</h3>
+        </div>
+        <div class="row text-left img-grids">
+            {% for video in videos %}
+            <div class="col-lg-4 col-sm-6 maghny-gd-1">
+                <div class="maghny-grid p-3 m-3"
+                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                    <figure class="effect-lily">
+                        <iframe class="d-block m-auto"
+                                src="https://www.youtube.com/embed/{{video.id}}"
+                                title="{{video.name}}" frameborder="0"
+                                allowfullscreen></iframe>
+                    </figure>
+                    <form method="post">
+                        {%csrf_token%}
+                        <input type="hidden" name="id" value="{{video.id}}">
+                        <button class="btn btn-style btn-primary mt-3" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+             {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

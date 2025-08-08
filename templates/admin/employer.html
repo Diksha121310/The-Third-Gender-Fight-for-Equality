@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "admin/base.html" %}
 {% block content %}
 <div class="inner-banner">
@@ -48,4 +49,56 @@
     </div>
 </section>
 <!-- //form -->
+=======
+{% extends "admin/base.html" %}
+{% block content %}
+<div class="inner-banner">
+</div>
+<!-- /form -->
+<section class="w3l-contact-11">
+    <div class="form-41-mian py-5">
+        <div class="container py-lg-4">
+            <div class="row align-form-map">
+                <div class="col-lg-11 d-block m-auto form-inner-cont border rounded bg-light border-primary py-3">
+                    <div class="title-content">
+                        <h3 class="hny-title mb-lg-5 mb-4 text-center">Employer</h3>
+                    </div>
+                    <p class="text-info text-center">{{message}}</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-stripped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for employer in employers %}
+                            <tr>
+                                <td>{{ employer.name }}</td>
+                                <td>{{ employer.mobile }}</td>
+                                <td>{{ employer.email }}</td>
+                                <td>{{ employer.address }}</td>
+                                <td>
+                                    <form method="post">
+                                        {%csrf_token%}
+                                        <input type="hidden" name="id" value="{{employer.id}}">
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //form -->
+>>>>>>> 1216e640933198b15d9e1c9c5091f19f01f2dd8d
 {% endblock %}

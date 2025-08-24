@@ -1,12 +1,13 @@
 ﻿<!doctype html>
 <html lang="eng">
 <head>
+    {% load static %}
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Third Gender</title>
     <!-- Template CSS -->
-    <link rel="stylesheet" href="static/assets/css/style-starter.css">
+    <link rel="stylesheet" href="{% static 'assets/css/style-starter.css' %}">
     <!-- Template CSS -->
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
     <!-- Template CSS -->
@@ -105,10 +106,10 @@
 
 </html>
 
-<script src="static/assets/js/jquery-3.3.1.min.js"></script>
+<script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
 
 <!-- disable body scroll which navbar is in active -->
-<script src="static/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
 <script>
 	$(document).ready(function () {
 		$('.popup-with-zoom-anim').magnificPopup({
@@ -153,8 +154,8 @@
 </script>
 <!--//-->
 <!-- stats -->
-<script src="static/assets/js/jquery.waypoints.min.js"></script>
-<script src="static/assets/js/jquery.countup.js"></script>
+<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.countup.js' %}"></script>
 <script>
 	$('.counter').countUp();
 
@@ -166,7 +167,7 @@
 
 </script>
 <!-- //stats -->
-<script src="static/assets/js/owl.carousel.js"></script>
+<script src="{% static 'assets/js/owl.carousel.js' %}"></script>
 <!-- script for banner slider-->
 <script>
 	$(document).ready(function () {
@@ -300,8 +301,8 @@
 
 </script>
 <!--//MENU-JS-->
-<script src="static/assets/js/bootstrap.min.js"></script>
-<script src="/static/assets/js/select22.min.js"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/select2.min.js' %}"></script>
 <script>
                         $('.select2').select2();
 

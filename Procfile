@@ -1,1 +1,1 @@
-web: gunicorn VR.wsgi --bind 0.0.0.0:$PORT
+web: gunicorn VR.wsgi --log-file -

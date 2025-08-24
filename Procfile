@@ -1,1 +1,1 @@
-web: gunicorn VR.wsgi
+web: gunicorn VR.wsgi --bind 0.0.0.0:$PORT
